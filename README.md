@@ -6,7 +6,7 @@ Simple static web server for local development using rack and thin.
 
 Add this line to your application's Gemfile:
 
-    gem "simple-server"
+    gem "simple-server", :git => "https://github.com/joergschiller/simple-server.git"
 
 And then execute:
 
@@ -18,4 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
-    $ simple-server
+    $ bundle exec simple-server
+    
+    or
+    
+    $ bundle exec simple-server --port 1245
