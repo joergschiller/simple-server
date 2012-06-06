@@ -20,6 +20,6 @@ Or install it yourself as:
 
     $ bundle exec simple-server
     
-    or
+or
     
     $ bundle exec simple-server --port 1245
