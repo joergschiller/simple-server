@@ -15,4 +15,4 @@ app = Rack::Builder.app do
   run lambda { |env| [404, { "Content-Type" => "text/plain" }, "Not Found"] }
 end
 
-Rack::Server.start :Port => options[:port], :app => app
+Rack::Server.start :Port => options[:port], :app => app, :environment => "deployment"
