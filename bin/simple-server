@@ -2,6 +2,7 @@
 
 require "optparse"
 require "rack"
+require "simple/server"
 
 options = { :port => 8080 }
 
@@ -10,9 +11,4 @@ OptionParser.new do |opts|
   opts.on("-p", "--port PORT", "use PORT (default: 8080)") { |port| options[:port] = port }
 end.parse!
 
-app = Rack::Builder.app do
-  use Rack::Static, :urls => [""], :root => Dir.pwd, :index => "index.html"
-  run lambda { |env| [404, { "Content-Type" => "text/plain" }, "Not Found"] }
-end
-
-Rack::Server.start :Port => options[:port], :app => app, :environment => "deployment"
+Rack::Server.start :Port => options[:port], :app => Simple::Server.app(Dir.pwd), :environment => "deployment"

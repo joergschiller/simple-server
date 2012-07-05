@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path('../lib/simple-server/version', __FILE__)
+require File.expand_path('../lib/simple/server_version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.authors       = ["Jörg Schiller"]
@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "simple-server"
   gem.require_paths = ["lib"]
-  gem.version       = Simple::Server::VERSION
+  gem.version       = Simple::ServerVersion::VERSION
 
   gem.add_dependency "rack"
   gem.add_dependency "thin"
