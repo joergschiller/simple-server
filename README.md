@@ -19,7 +19,12 @@ Or install it yourself as:
 ## Usage
 
     $ bundle exec simple-server
-    
+
 or
-    
+
     $ bundle exec simple-server --port 1245
+
+for use with Capybara
+
+    require "simple/server"
+    Capybara.app = Simple::Server.app File.join(File.dirname(__FILE__), "..", "public")
