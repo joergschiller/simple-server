@@ -9,6 +9,7 @@ options = { :port => 8080 }
 OptionParser.new do |opts|
   opts.banner = "Usage: #{$0}"
   opts.on("-p", "--port PORT", "use PORT (default: 8080)") { |port| options[:port] = port }
+  opts.on("-d", "--directory DIRECTORY", "serve from DIRECTORY (defaults to current working directory)") { |dir| options[:dir] = dir }
 end.parse!
 
-Rack::Server.start :Port => options[:port], :app => Simple::Server.app(Dir.pwd), :environment => "deployment"
+Rack::Server.start :Port => options[:port], :app => Simple::Server.app(options[:dir] || Dir.pwd), :environment => "deployment"
